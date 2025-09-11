@@ -1,0 +1,2 @@
+print "hi" or 2; // both are truthy, return hi
+print nil or "yes"; // nil is not truthy, return yes
