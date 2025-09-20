@@ -10,7 +10,7 @@ import (
 
 type Scanner struct {
 	source string
-	tokens []*token.Token
+	tokens []token.Token
 
 	start   int
 	current int
@@ -18,10 +18,10 @@ type Scanner struct {
 }
 
 func New(source string) *Scanner {
-	return &Scanner{source: source, tokens: make([]*token.Token, 0), start: 0, current: 0, line: 1}
+	return &Scanner{source: source, tokens: make([]token.Token, 0), start: 0, current: 0, line: 1}
 }
 
-func (s *Scanner) Scan() ([]*token.Token, error) {
+func (s *Scanner) Scan() ([]token.Token, error) {
 	for !s.isAtEnd() {
 		s.start = s.current
 

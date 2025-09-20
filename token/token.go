@@ -2,6 +2,10 @@ package token
 
 import "fmt"
 
+var (
+	NilV = New(Nil, "nil", nil, 0)
+)
+
 type Token struct {
 	Kind    Kind
 	Lexeme  string
@@ -9,10 +13,10 @@ type Token struct {
 	Line    int
 }
 
-func New(kind Kind, lexeme string, literal any, line int) *Token {
-	return &Token{kind, lexeme, literal, line}
+func New(kind Kind, lexeme string, literal any, line int) Token {
+	return Token{kind, lexeme, literal, line}
 }
 
-func (t *Token) ToString() string {
+func (t Token) String() string {
 	return fmt.Sprintf("{Kind(%v), Literal(%v), Lexeme(%s)}", t.Kind, t.Literal, t.Lexeme)
 }

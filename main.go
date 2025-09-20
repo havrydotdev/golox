@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/havrydotdev/golox/expr"
+	eval "github.com/havrydotdev/golox/evaluator"
 	"github.com/havrydotdev/golox/parser"
 	"github.com/havrydotdev/golox/scanner"
 )
@@ -24,9 +24,13 @@ func main() {
 			fmt.Printf("Scanning failed: %s\n", err.Error())
 		}
 
-		exprs, errs := parser.New(tokens, expr.NewEval()).Parse()
+		exprs, errs := parser.New(tokens, eval.New()).Parse()
 		for _, err := range errs {
 			fmt.Println(err.Error())
+		}
+
+		if len(errs) != 0 {
+			return
 		}
 
 		for _, expr := range exprs {
@@ -52,9 +56,13 @@ func main() {
 				fmt.Printf("Scanning failed: %s\n", err.Error())
 			}
 
-			exprs, errs := parser.New(tokens, expr.NewEval()).Parse()
+			exprs, errs := parser.New(tokens, eval.New()).Parse()
 			for _, err := range errs {
 				fmt.Println(err.Error())
+			}
+
+			if len(errs) != 0 {
+				continue
 			}
 
 			for _, expr := range exprs {

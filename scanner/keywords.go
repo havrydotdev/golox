@@ -12,7 +12,6 @@ var keywords = map[string]token.Kind{
 	"if":     token.If,
 	"nil":    token.Nil,
 	"or":     token.Or,
-	"print":  token.Print,
 	"return": token.Return,
 	"super":  token.Super,
 	"this":   token.This,

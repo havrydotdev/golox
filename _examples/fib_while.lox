@@ -1,0 +1,14 @@
+var n = 0; 
+var prev = 1;
+var prevsq = 0;
+
+while (n < 34) {
+    var curr = prev + prevsq;
+    
+    prevsq = prev;
+    prev = curr;
+
+    n = n + 1;
+}
+
+print(prev);

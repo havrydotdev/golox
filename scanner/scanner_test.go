@@ -15,6 +15,6 @@ func TestBasic(t *testing.T) {
 	}
 
 	for _, token := range tokens {
-		t.Log(token.ToString())
+		t.Log(token)
 	}
 }
